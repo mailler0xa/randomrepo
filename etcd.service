@@ -5,16 +5,16 @@ Documentation=https://github.com/coreos/etcd
 [Service]
 User=etcd
 Type=notify
-ExecStart=/usr/local/bin/etcd
- --name mailler-server
+ExecStart=/usr/local/bin/etcd/etcd \\
+ --name mailler-server \\
  --data-dir /var/lib/etcd
- --initial-advertise-peer-urls http://192.168.232.131:2380
- --listen-peer-urls http://${ETCD_HOST_IP}:2380
- --listen-client-urls http://192.168.232.131:2379,http://127.0.0.1:2379
- --advertise-client-urls http://192.168.232.131:2379
- --initial-cluster-token etcd-cluster-1
- --initial-cluster-state new
- --heartbeat-interval 1000
+ --initial-advertise-peer-urls http://192.168.232.131:2380 \\
+ --listen-peer-urls http://192.168.232.131:2380 \\
+ --listen-client-urls http://192.168.232.131:2379,http://127.0.0.1:2379 \\
+ --advertise-client-urls http://192.168.232.131:2379 \\
+ --initial-cluster-token etcd-cluster-1 \\
+ --initial-cluster-state new \\
+ --heartbeat-interval 1000 \\
  --election-timeout 5000
 Restart=on-failure
 RestartSec=5
